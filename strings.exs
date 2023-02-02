@@ -29,7 +29,7 @@ defmodule MyString do
       |> Enum.each(&(IO.puts &1))
     else
       list
-      |> Enum.map(&(String.pad_leading(&1, div(padding, 2), " ")))
+      |> Enum.map(&(String.pad_leading(&1, div(padding - String.length(&1), 2) + String.length(&1) + 1, " ")))
       |> Enum.map(&(String.pad_trailing(&1, padding, " ")))
       |> Enum.each(&(IO.puts &1))
     end
